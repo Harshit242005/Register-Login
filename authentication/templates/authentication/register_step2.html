@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Step 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Add additional styles if needed -->
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="bg-white shadow-lg rounded-lg p-8">
+            <h2 class="text-2xl font-bold mb-6 text-center">Register Now To Apply</h2>
+            <form method="post" action="{% url 'register_step2' %}">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <input type="text" name="course_interest" placeholder="Course Interest" class="form-input" required>
+                </div>
+                <div class="mb-4">
+                    <label for="highest_education" class="block text-sm font-medium text-gray-700">Highest
+                        Education</label>
+                    <select id="highest_education" name="highest_education" class="form-input" required>
+                        <option value="12th pass" selected>12th Pass</option>
+                        <!-- Add options here -->
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <input type="number" name="percentage" placeholder="Percentage" class="form-input" required>
+                </div>
+                <div class="mb-4">
+                    <input type="date" name="start_study" class="form-input"
+                        placeholder="When did you start your studies?" required>
+                </div>
+                <div class="flex items-center mb-4">
+                    <input type="checkbox" name="receive_newsletter" class="form-checkbox">
+                    <span class="ml-2">I wish to receive the newsletter.</span>
+                </div>
+                <div class="flex items-center mb-4">
+                    <input type="checkbox" name="receive_promo_offers" class="form-checkbox">
+                    <span class="ml-2">I wish to receive promotional offers.</span>
+                </div>
+                <div class="flex items-center mb-4">
+                    <input type="checkbox" name="have_passport" class="form-checkbox">
+                    <span class="ml-2">I have passport</span>
+                </div>
+                <div class="text-center mt-6">
+                    <button type="submit"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit Registration
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

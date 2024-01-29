@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Step 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Add additional styles if needed -->
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="bg-white shadow-lg rounded-lg p-8">
+            <h2 class="text-2xl font-bold mb-6 text-center">Register Now To Apply</h2>
+
+            {% if form.errors %}
+            <ul class="errorlist">
+                {% for field in form %}
+                {% for error in field.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            <form method="post" action="{% url 'register_step1' %}">
+                {% csrf_token %}
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <input type="text" name="username" placeholder="Username" class="form-input" required>
+
+                </div>
+                <div class="mb-4">
+                    <input type="tel" name="phone" placeholder="Phone Number" class="form-input" required>
+
+                </div>
+                <div class="mb-4">
+                    <input type="email" name="email" placeholder="Email" class="form-input" required>
+
+                </div>
+                <div class="mb-4">
+                    <input type="password" name="password" placeholder="Password" class="form-input" required>
+                </div>
+                <div class="text-center mt-6">
+                    <button type="submit"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next
+                    </button>
+                </div>
+            </form>
+            <div class="text-center mt-4">
+                <a href="{% url 'login_url' %}" class="text-blue-600 hover:underline">Already registered?</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
