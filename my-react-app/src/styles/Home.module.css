@@ -1,0 +1,16 @@
+.btn
+{
+    width: 200px;
+    height: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.186);
+    border-radius: 5px;
+}
+
+.btns {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
